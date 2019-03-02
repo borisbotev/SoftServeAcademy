@@ -4,13 +4,17 @@
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
-    public class ImageServeDbContext : IdentityDbContext<ImageServeUser>
+    public class ImageServeDbContext : IdentityDbContext<User>
     {
         public DbSet<Image> Images { get; set; }
 
         public DbSet<Tag> Tags { get; set; }
 
         public DbSet<ImageTag> ImageTags { get; set; }
+
+        //public DbSet<User> Users { get; set; }
+
+        public DbSet<UserFriend> UserFriends { get; set; }
 
 
         public ImageServeDbContext(DbContextOptions<ImageServeDbContext> options)
@@ -28,6 +32,7 @@
         {
             base.OnModelCreating(builder);
 
+           
 
             //one to many relations
             builder.Entity<Image>()

@@ -25,7 +25,7 @@ namespace ImageServe.Models
 
         [Required]
         public string UserId { get; set; }
-        public ImageServeUser User { get; set; }
+        public User User { get; set; }
 
         public ICollection<ImageTag> Tags { get; set; }
     }
