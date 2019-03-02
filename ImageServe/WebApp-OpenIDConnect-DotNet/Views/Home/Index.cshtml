@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@{ 
+    if (User.Identity.IsAuthenticated)
+    {
+        <h1>Hallo</h1>
+    }
+}
+
