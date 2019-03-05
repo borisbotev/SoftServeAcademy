@@ -25,6 +25,7 @@ namespace ImageServe.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Name = HttpContext.User.FindFirst(ClaimTypes.GivenName).Value;
             return View();
         }
 
@@ -80,7 +81,8 @@ namespace ImageServe.Controllers
                 responseString = $"Error calling API: {ex.Message}";
             }
 
-            ViewData["Payload"] = $"{responseString}";            
+            ViewData["Payload"] = $"{responseString}";
+            ViewBag.Name = ClaimTypes.GivenName;
             return View();
         }
 
